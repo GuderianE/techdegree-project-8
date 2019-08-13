@@ -1,8 +1,25 @@
+body{
+    background-color: rgb(235, 225, 225);
+}
+
+ol, ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 #Grid {
     display: grid;
 }
 
 .employee {
     border: solid 1px lightcyan;
-    border-radius: 5px; 
+    border-radius: 5px;
+    height: 100px;
+    background-color: #fff;
+}
+
+.profileImage {
+    width: 50px;
+    border-radius: 50%;
 }
