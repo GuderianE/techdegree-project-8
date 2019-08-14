@@ -1,33 +1,41 @@
+let userData = [];
 const randomUserUrl = 'https://randomuser.me/api/?results=12';
-const employee = document.querySelector('.employee');
+// const employee = document.querySelector('.employee');
 const userList = document.querySelector('#user-list');
 
 const fetchRequest = async (url) => {
     try {
-    const userResponse = await fetch(url);
-    return await userResponse.json();
-    } catch (error) {
+    const fetchUrl = await fetch(url);
+    const response = await fetchUrl.json();
+    const jsonObject = await Object.values(response.results);
+    return await jsonObject;
+    } catch(error) {
         throw error;
     }
 };
-
+console.log(fetchRequest(randomUserUrl));
 function createHTML (data) {
+    userData = data;
     const liElement = document.createElement('li');
-    for (let i = 0; i < data.length; i++) {
-        userList.appendChild(liElement);
+    const promises = userData.results.forEach(async data => {
+        userList.classList.appendChild(liElement);
         liElement.innerHTML = `
-          <div class="profileImage">  
-          <img src=${data[i].picture.thumbnail}>
-          </div>
+          <div class="wrapper">  
+          <img class="profileImage" src="${data.picture.thumbnail}">
           <div class="userData">
-          <h2>${data[i].name.first} ${data[i].name.last}</h2>
-          <p>${data[i].email}</p>
-          <p>${data[i].location.city}</p>
+          <h2>${data.name.first} ${data.name.last}</h2>
+          <p>${data.email}</p>
+          <p>${data.location.city}</p>
+          </div>
           </div>
         `;
-    }
+        li = liElement.innerHTML;
+        li.className = "employee";
+    });
+    return Promises.all(promises);
 }
 
-const userData = fetchRequest(randomUserUrl);
-createHTML(userData);
-console.log(createHTML(userData));
+const randomUser = fetchRequest(randomUserUrl);
+
+createHTML(randomUser);
+
