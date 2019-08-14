@@ -8,18 +8,30 @@ ol, ul {
     padding: 0;
 }
 
-#Grid {
+.container {
     display: grid;
+    grid-auto-columns: auto auto auto;
+    
 }
 
 .employee {
+    display: flex;
+    align-content: center;
     border: solid 1px lightcyan;
     border-radius: 5px;
-    height: 100px;
+    height: 200px;
+    width: 400px;
     background-color: #fff;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
 .profileImage {
-    width: 50px;
     border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-right: 2em;
 }
