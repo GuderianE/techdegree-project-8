@@ -1,5 +1,11 @@
-body{
+body {;
     background-color: rgb(235, 225, 225);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin: 0 5em;
 }
 
 ol, ul {
@@ -8,30 +14,72 @@ ol, ul {
     padding: 0;
 }
 
-.container {
+#user-list {
     display: grid;
-    grid-auto-columns: auto auto auto;
+    justify-content: center;
+    grid-auto-flow: row;
+    grid-gap: 4vw;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
     
 }
 
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+
 .employee {
     display: flex;
-    align-content: center;
-    border: solid 1px lightcyan;
+    justify-content: center;
+    border: solid 2px rgb(198, 224, 224);
     border-radius: 5px;
     height: 200px;
-    width: 400px;
+    width: 450px;
     background-color: #fff;
 }
 
 .wrapper {
     display: flex;
     flex-direction: row;
+    width: 150vw;
 }
 
 .profileImage {
+    display: flex;
+    align-self: center;
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    margin-right: 2em;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+.userData {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    #user-list {
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+    }
+}
+
+@media (min-width: 1224px) {
+    #user-list {
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;       
+    }
 }
