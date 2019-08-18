@@ -64,7 +64,7 @@ ol, ul {
     margin-left: 1em;
 }
 
-.userData {
+.user-data {
     display: flex;
     align-self: center;
     flex-direction: column;
