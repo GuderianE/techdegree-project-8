@@ -129,7 +129,7 @@ input.addEventListener("input", () => {
   const lastName = userData.map(data => data.name.last);
 
   for (let i =0; i < userList.length; i++) {
-    if(firstName[i].indexOf(inputValue) && lastName[i].indexOf(inputValue) === -1) {
+    if(firstName[i].indexOf(inputValue) === -1 && lastName[i].indexOf(inputValue) === -1) {
         userList[i].classList.add('hidden');
         x++;
     } else {
