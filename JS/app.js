@@ -5,10 +5,6 @@ const container = document.querySelector('.container');
 const showOverlay = document.querySelector('.overlay');
 const closeOverlay = document.querySelector('.close-overlay');
 
-const capitalize = function (string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
 //requests URl, makes JSON readable in JS and calls createHTML to display the data in the browser
 fetch(randomUserUrl)
     .then(res => res.json())
@@ -35,9 +31,9 @@ function createEmployeeHTML (data) {
             <div class="wrapper">
                 <img class="profileImage" src="${picture.large}" alt="${name.first} ${name.last}">
             <div class="user-data">
-                <h2>${capitalize(name.first)} ${capitalize(name.last)}</h2>
+                <h2 class="capitalize">${name.first} ${name.last}</h2>
                 <p>${email}</p>
-                <p>${capitalize(city)}</p>
+                <p class="capitalize">${city}</p>
             </div>
             </div>
         </div>
@@ -62,16 +58,18 @@ const createEmployeeDetailHTML = (index) => {
     div.innerHTML = ` 
         <button class="close-overlay">X</button>   
         <img class="profileImage" src="${picture.large}" alt="${name.first} ${name.last}">
-        <div class="user-data">
-            <h2>${name.first} ${name.last}</h2>
+        <div class="user-data-detail">
+            <h2 class="capitalize">${name.first} ${name.last}</h2>
+            <p class="capitalize">${city}</p> 
             <p>${email}</p>
-            <p>${city}</p>
-            <p>${phone}</p>
-            <p>${street}, 
-            ${state} ${postcode}
-            </p>
-            <p>Birthday:
-            ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+            <div class="user-data-extra">
+                <p>${phone}</p>
+                <p class="capitalize">${street}, 
+                ${state} ${postcode}
+                </p>
+                <p>Birthday:
+                ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+            </div>
         </div>
         ${arrow}
         `;
